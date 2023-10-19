@@ -1,3 +1,11 @@
+this is a fork of https://github.com/darkphoenix/tolino-calibre-sync
+
+I could not login with any partner with the original code, so I tried to debug it.
+
+I think I managed to make it work for Buecher.de (30). I only modified the login function in tolinocloud.py: I use mechanize to obtain the cookie at the beginnig.
+
+It will probably not work for any other partners.
+
 Access to tolino cloud with Python 3 and Calibre
 ================================================
 
