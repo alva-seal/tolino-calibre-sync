@@ -366,6 +366,8 @@ class TolinoCloud:
             logging.debug('-------------------------------------------------------')
 
     def login(self, username, password):
+        import mechanize
+        br =mechanize.Browser()
         s = self.session
         c = self.partner_settings[self.partner_id]
 
