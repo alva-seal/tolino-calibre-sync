@@ -410,13 +410,18 @@ class TolinoCloud:
                 'x_buchde.skin_id': c['x_buchde.skin_id'],
                 'x_buchde.mandant_id' : c['x_buchde.mandant_id']
             }, verify=True, allow_redirects=False)
-        data = c['login_form']['extra']
-        data[c['login_form']['username']] = username
-        data[c['login_form']['password']] = password
-        r = s.post(c['login_url'], data=data, verify=True)
-        logging.debug(data)
+        # data = c['login_form']['extra']
+        br.open(c['login_url'])
+        br.select_form(id='login')
+        br[c['login_form']['username']] = username
+        br[c['login_form']['password']] = password
+        br.submit()
+        for cookie in br.cookiejar:
+            s.cookies.set(cookie.name, cookie.value)
+
+        # logging.debug(data)
         logging.debug(c['login_cookie'])
-        self._debug(r)
+        # self._debug(r)
         if not c['login_cookie'] in s.cookies:
             raise TolinoException('login to {} failed.'.
                 format(self.partner_name[self.partner_id]))
