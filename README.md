@@ -1,4 +1,9 @@
-this is a fork of https://github.com/darkphoenix/tolino-calibre-sync
+this is a fork of [https://github.com/darkphoenix/tolino-calibre-sync](https://github.com/ImamAzim/tolino-calibre-sync)
+
+I added the possibility to have some tags be transformed to collections
+
+
+---
 
 I could not login with any partner with the original code, so I tried to debug it.
 
