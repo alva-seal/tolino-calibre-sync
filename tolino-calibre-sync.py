@@ -48,6 +48,27 @@ def update_collections(db, c, book, doc_id):
     except TolinoException:
         logger.warning("Error updating collections for %s"%local_meta.title)
         failed_collection_cnt += 1
+    try:
+        local_meta = db.get_metadata(book)
+        if "Young Adult" in local_meta.tag.len:
+            c.add_to_collection(doc_id, "Young Adult")
+            collection_cnt += 1
+        if "Lesbian" in local_meta.tag.len:
+            c.add_to_collection(doc_id, "Lesbian")
+            collection_cnt += 1
+        if "Lgbt" in local_meta.tag.len:
+            c.add_to_collection(doc_id, "Lgbt")
+            collection_cnt += 1
+        if "Contemporary" in local_meta.tag.len:
+            c.add_to_collection(doc_id, "Contemporary")
+            collection_cnt += 1        
+        if ("Lgbt" in local_meta.tag.len) and ("Contemporary" in local_meta.tag.len) and ("Lesbian" in local_meta.tag.len):
+            c.add_to_collection(doc_id, "YA lesbian and Contemporary")
+            collection_cnt += 1
+    except TolinoException:
+        logger.warning("Error updating (tag) collections for %s"%local_meta.title)
+        failed_collection_cnt += 1
+    
 
 def upload_book(db, c, book):
     global book_cnt
