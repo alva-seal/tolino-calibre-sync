@@ -50,25 +50,25 @@ def update_collections(db, c, book, doc_id):
         failed_collection_cnt += 1
     try:
         local_meta = db.get_metadata(book)
-        if "Young Adult" in local_meta.tag.len:
+        if "Young Adult" in local_meta.tags:
             c.add_to_collection(doc_id, "Young Adult")
             collection_cnt += 1        
-        if "Favorites" in local_meta.tag.len:
+        if "Favorites" in local_meta.tags:
             c.add_to_collection(doc_id, "Favorites")
             collection_cnt += 1        
-        if "To Read" in local_meta.tag.len:
+        if "To Read" in local_meta.tags:
             c.add_to_collection(doc_id, "Reading List")
             collection_cnt += 1
-        if "Lesbian" in local_meta.tag.len:
+        if "Lesbian" in local_meta.tags:
             c.add_to_collection(doc_id, "Lesbian")
             collection_cnt += 1
-        if "Lgbt" in local_meta.tag.len:
+        if "Lgbt" in local_meta.tags:
             c.add_to_collection(doc_id, "Lgbt")
             collection_cnt += 1
-        if "Contemporary" in local_meta.tag.len:
+        if "Contemporary" in local_meta.tags:
             c.add_to_collection(doc_id, "Contemporary")
             collection_cnt += 1        
-        if ("Lgbt" in local_meta.tag.len) and ("Contemporary" in local_meta.tag.len) and ("Lesbian" in local_meta.tag.len):
+        if ("Lgbt" in local_meta.tags) and ("Contemporary" in local_meta.tags) and ("Lesbian" in local_meta.tags):
             c.add_to_collection(doc_id, "YA lesbian and Contemporary")
             collection_cnt += 1
     except TolinoException:
