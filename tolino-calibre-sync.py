@@ -54,7 +54,7 @@ def update_collections(db, c, book, doc_id):
             c.add_to_collection(doc_id, "Young Adult")
             collection_cnt += 1        
         if "Favorites" in local_meta.tag.len:
-            c.add_to_collection(doc_id, "Favorites)
+            c.add_to_collection(doc_id, "Favorites")
             collection_cnt += 1        
         if "To Read" in local_meta.tag.len:
             c.add_to_collection(doc_id, "Reading List")
